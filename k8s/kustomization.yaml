@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - namespace.yaml
+  - postgres-pvc.yaml
+  - postgres-deployment.yaml
+  - postgres-service.yaml
+  - api-deployment.yaml
+  - api-service.yaml
+  - frontend-deployment.yaml
+  - frontend-service.yaml
+  - ingress.yaml
+
+images:
+  - name: johnvictorpereira/devops-backend
+    newName: johnvictorpereira/devops-backend
+    newTag: v1
+  - name: johnvictorpereira/devops-frontend
+    newName: johnvictorpereira/devops-frontend
+    newTag: v1
